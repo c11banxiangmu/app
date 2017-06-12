@@ -41,5 +41,9 @@ public class controller {
 		}
 	}
 		
-		
+	//加载页面
+	@RequestMapping(value="/applist.html",method=RequestMethod.GET)
+	public String applist(){
+		return "developer/appinfolist";
+	}
 }
