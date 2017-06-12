@@ -1,0 +1,49 @@
+﻿package org.news.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.news.entity.Comment;
+import org.news.entity.News;
+import org.news.entity.Topic;
+import org.news.service.CommentsService;
+import org.news.service.NewsService;
+import org.news.service.TopicsService;
+import org.news.service.impl.CommentsServiceImpl;
+import org.news.service.impl.NewsServiceImpl;
+import org.news.service.impl.TopicsServiceImpl;
+import org.news.util.Page;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+
+public class NewsServlet extends HttpServlet {
+    private static final long serialVersionUID = 7679716260193021854L;
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+       
+        out.flush();
+        out.close();
+    }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        this.doGet(request, response);
+    }
+
+}
