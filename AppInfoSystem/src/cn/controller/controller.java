@@ -52,38 +52,58 @@ public class controller {
 			return "developer/main";
 		}
 	}
-		
-	//加载页面
-	/*@RequestMapping(value="/applist.html",method=RequestMethod.GET)
-	public String applist(HttpSession session){
-		List<data_dictionary> dictionary =data_dictionaryService.getdictionary();
-		session.setAttribute("statusList", dictionary);
-		List<data_dictionary> dictionarys =data_dictionaryService.getdata_dictionarys();
-		session.setAttribute("flatFormList", dictionary);
-		return "developer/appinfolist";
-	}*/
+
+	//注销
+		@RequestMapping(value="/loginout.html")
+		public String loginout(HttpSession session){
+			session.invalidate();
+			return "devlogin";
+		}
 	
+	//加载页面
+
 	@RequestMapping(value="/applist.html")
 	public String applist(HttpServletRequest request,
 						HttpSession session,
 			@RequestParam(required=false)String querySoftwareName,
 			@RequestParam(required=false)String queryStatus,
-			@RequestParam(required=false)String queryFlatformId){
+			@RequestParam(required=false)String queryFlatformId/*,
+			@RequestParam(required=false)String categoryLevel1,
+			@RequestParam(required=false)String categoryLevel2,
+			@RequestParam(required=false)String categoryLevel3*/
+			){
 		
 		List<data_dictionary> dictionary =data_dictionaryService.getdictionary();
 		session.setAttribute("flatFormList", dictionary);
 		List<data_dictionary> dictionarys =data_dictionaryService.getdata_dictionarys();
 		session.setAttribute("statusList", dictionarys);
 		
-		if(queryStatus==null){
+		if(queryStatus==null || queryStatus.equals("")){
 			queryStatus="0";
 		}
-		if(queryFlatformId==null){
+		if(queryFlatformId==null|| queryFlatformId.equals("")){
 			queryFlatformId="0";
 		}
+		/*if(categoryLevel1==null|| categoryLevel1.equals("")){
+			categoryLevel1="0";
+		}
+		if(categoryLevel2==null|| categoryLevel2.equals("")){
+			categoryLevel2="0";
+		}
+		if(categoryLevel3==null|| categoryLevel3.equals("")){
+			categoryLevel3="0";
+		}*/
 		
 		List<app_info> applist =app_infoService.getAllApp(querySoftwareName,Integer.parseInt(queryStatus),Integer.parseInt(queryFlatformId));
 		request.setAttribute("appInfoList", applist);
 		return "developer/appinfolist";
 	}
+
+//跳转新增版本信息页面
+	@RequestMapping(value="/addversionsave.html")
+	public String addversionsave(){
+		return "developer/appversionadd";
+	}
+
+
 }

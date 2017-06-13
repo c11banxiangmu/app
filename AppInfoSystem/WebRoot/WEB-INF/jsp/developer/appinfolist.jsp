@@ -200,7 +200,7 @@
                         <li><a class="modifyVersion" 
 											appinfoid="${appInfo.id }" versionid="${appInfo.versionId }" status="${appInfo.status }" 
 											statusname="${appInfo.statusName }"											
-											data-toggle="tooltip" data-placement="top" title="" data-original-title="修改APP最新版本信息">修改版本</a>
+											data-toggle="tooltip" data-placement="top" title="" data-original-title="修改APP最新版本信息" >修改版本</a>
                         </li>
                         <li><a  class="modifyAppInfo" 
 											appinfoid="${appInfo.id }" status="${appInfo.status }" statusname="${appInfo.statusName }"
