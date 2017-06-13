@@ -10,7 +10,7 @@ import cn.pojo.app_info;
 @Service("app_infoService")
 public class App_infoServiceImpl implements App_infoService {
 	@Autowired
-	App_infoMapper app_infomapper;
+	public App_infoMapper app_infomapper;
 	
 
 	public void setApp_infomapper(App_infoMapper app_infomapper) {

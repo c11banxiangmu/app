@@ -10,11 +10,16 @@ import cn.pojo.data_dictionary;
 @Service("data_dictionaryService")
 public class Data_dictionaryServiceImpl implements Data_dictionaryService {
 	@Autowired
-	Data_dictionaryMapper data_dictionarymapper;
+	public Data_dictionaryMapper data_dictionarymapper;
 	@Override
 	public List<data_dictionary> getdictionary() {
 		
 		return data_dictionarymapper.getdata_dictionary();
+	}
+	@Override
+	public List<data_dictionary> getdata_dictionarys() {
+		
+		return data_dictionarymapper.getdata_dictionarys();
 	}
 	
 }	

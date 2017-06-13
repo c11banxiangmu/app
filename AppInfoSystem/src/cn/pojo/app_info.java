@@ -13,7 +13,7 @@ public class app_info {
 	private Date updateDate;			//更新日期
 	private int devId; 					//开发者ID
 	private String appInfo;				//应用简介
-	private int STATUS; 				//状态(来源于data_dctionary)
+	private int status; 				//状态(来源于data_dctionary)
 	private Date onSaleDate;			//上架时间
 	private Date offSaleDate; 			//下架时间
 	private int flatformId; 			//所属平台(来源于data_dictionary)
@@ -28,6 +28,62 @@ public class app_info {
 	private String logoPicPath;			//LOGO图片url路径
 	private String logoLocPath;			//LOGO图片的服务器存储路径
 	private String versionId;			//最新的版本ID
+	private String versionNo;
+	private String valueName;
+	private String flatformName;
+	private String statusName;
+	private String categoryName;
+	private String categoryLevel1Name;
+	private String categoryLevel2Name;
+	private String categoryLevel3Name;
+	public String getVersionNo() {
+		return versionNo;
+	}
+	public void setVersionNo(String versionNo) {
+		this.versionNo = versionNo;
+	}
+	public String getValueName() {
+		return valueName;
+	}
+	public void setValueName(String valueName) {
+		this.valueName = valueName;
+	}
+	public String getFlatformName() {
+		return flatformName;
+	}
+	public void setFlatformName(String flatformName) {
+		this.flatformName = flatformName;
+	}
+	public String getStatusName() {
+		return statusName;
+	}
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
+	public String getCategoryName() {
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+	public String getCategoryLevel1Name() {
+		return categoryLevel1Name;
+	}
+	public void setCategoryLevel1Name(String categoryLevel1Name) {
+		this.categoryLevel1Name = categoryLevel1Name;
+	}
+	public String getCategoryLevel2Name() {
+		return categoryLevel2Name;
+	}
+	public void setCategoryLevel2Name(String categoryLevel2Name) {
+		this.categoryLevel2Name = categoryLevel2Name;
+	}
+	public String getCategoryLevel3Name() {
+		return categoryLevel3Name;
+	}
+	public void setCategoryLevel3Name(String categoryLevel3Name) {
+		this.categoryLevel3Name = categoryLevel3Name;
+	}
 	public int getId() {
 		return id;
 	}
@@ -82,11 +138,12 @@ public class app_info {
 	public void setAppInfo(String appInfo) {
 		this.appInfo = appInfo;
 	}
-	public int getSTATUS() {
-		return STATUS;
+	
+	public int getStatus() {
+		return status;
 	}
-	public void setSTATUS(int sTATUS) {
-		STATUS = sTATUS;
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	public Date getOnSaleDate() {
 		return onSaleDate;

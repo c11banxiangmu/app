@@ -54,20 +54,26 @@ public class controller {
 	}
 		
 	//加载页面
-	@RequestMapping(value="/applist.html",method=RequestMethod.GET)
-	public String applist(){
+	/*@RequestMapping(value="/applist.html",method=RequestMethod.GET)
+	public String applist(HttpSession session){
+		List<data_dictionary> dictionary =data_dictionaryService.getdictionary();
+		session.setAttribute("statusList", dictionary);
+		List<data_dictionary> dictionarys =data_dictionaryService.getdata_dictionarys();
+		session.setAttribute("flatFormList", dictionary);
 		return "developer/appinfolist";
-	}
+	}*/
 	
-	@RequestMapping(value="/applist.html",method=RequestMethod.POST)
+	@RequestMapping(value="/applist.html")
 	public String applist(HttpServletRequest request,
+						HttpSession session,
 			@RequestParam(required=false)String querySoftwareName,
 			@RequestParam(required=false)String queryStatus,
 			@RequestParam(required=false)String queryFlatformId){
 		
 		List<data_dictionary> dictionary =data_dictionaryService.getdictionary();
-		request.setAttribute("statusList", dictionary);
-		request.setAttribute("flatFormList", dictionary);
+		session.setAttribute("flatFormList", dictionary);
+		List<data_dictionary> dictionarys =data_dictionaryService.getdata_dictionarys();
+		session.setAttribute("statusList", dictionarys);
 		
 		if(queryStatus==null){
 			queryStatus="0";
