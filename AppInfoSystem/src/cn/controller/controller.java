@@ -1,6 +1,8 @@
 package cn.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -71,11 +73,11 @@ public class controller {
 	}*/
 	
 	@RequestMapping(value="/appinfolist.html")
-	public String applist(HttpServletRequest request,
-						HttpSession session,
+	public String applist(HttpServletRequest request,				
 			@RequestParam(required=false)String querySoftwareName,
 			@RequestParam(required=false)String queryStatus,
 			@RequestParam(required=false)String queryFlatformId,
+			@RequestParam(required=false)String pageIndex,
 			@RequestParam(required=false)String queryCategoryLevel1,
 			@RequestParam(required=false)String queryCategoryLevel2,
 			@RequestParam(required=false)String queryCategoryLevel3){
@@ -89,10 +91,13 @@ public class controller {
 		if(queryCategoryLevel3==null || queryCategoryLevel3.equals("")){
 			queryCategoryLevel3="0";
 		}
+		if(pageIndex==null || pageIndex.equals("")){
+			pageIndex="1";
+		}
 		List<data_dictionary> dictionary =data_dictionaryService.getdictionary();
-		session.setAttribute("flatFormList", dictionary);
+		request.setAttribute("flatFormList", dictionary);
 		List<data_dictionary> dictionarys =data_dictionaryService.getdata_dictionarys();
-		session.setAttribute("statusList", dictionarys);
+		request.setAttribute("statusList", dictionarys);
 		if(queryStatus==null || queryStatus.equals("")){
 			queryStatus="0";
 		}
@@ -101,14 +106,33 @@ public class controller {
 			queryFlatformId="0";
 		}
 		List<app_category> category1=cateGoryService.getcategory1(Integer.parseInt(queryCategoryLevel1));
-		session.setAttribute("categoryLevel1List", category1);
+		request.setAttribute("categoryLevel1List", category1);
 		List<app_category> category2=cateGoryService.getCategory2(Integer.parseInt(queryCategoryLevel2));
-		session.setAttribute("categoryLevel2List", category2);
+		request.setAttribute("categoryLevel2List", category2);
 		List<app_category> category3=cateGoryService.getCategory3(Integer.parseInt(queryCategoryLevel3));
-		session.setAttribute("queryCategoryLevel3", category3);
-		List<app_info> applist =app_infoService.getAllApp(querySoftwareName,Integer.parseInt(queryStatus),Integer.parseInt(queryFlatformId));
+		request.setAttribute("queryCategoryLevel3", category3);
+		
+		List<app_info> applist =app_infoService.getAllApp(querySoftwareName,Integer.parseInt(queryStatus),Integer.parseInt(queryFlatformId),
+				Integer.parseInt(queryCategoryLevel1),Integer.parseInt(queryCategoryLevel2),Integer.parseInt(queryCategoryLevel3),
+				Integer.parseInt(pageIndex), Constants.PAGE_SIZE);
 		request.setAttribute("appInfoList", applist);
 		
+		request.setAttribute("querySoftwareName", querySoftwareName);
+		request.setAttribute("queryStatus", queryStatus);
+		request.setAttribute("queryFlatformId", queryFlatformId);
+		
+		request.setAttribute("queryCategoryLevel1", queryCategoryLevel1);
+		request.setAttribute("queryCategoryLevel2", queryCategoryLevel2);
+		request.setAttribute("queryCategoryLevel3", queryCategoryLevel3);
+		
+		
+		int count=app_infoService.getCountByConcent(querySoftwareName,Integer.parseInt(queryStatus),Integer.parseInt(queryFlatformId));
+		int pageCount=count%Constants.PAGE_SIZE==0?count/Constants.PAGE_SIZE:count/Constants.PAGE_SIZE +1;
+		Map<String,Object> map= new HashMap<String,Object>();
+		map.put("totalCount", count);
+		map.put("currentPageNo", pageIndex);
+		map.put("totalPageCount", pageCount);
+		request.setAttribute("pages", map);
 		return "developer/appinfolist";
 	}
 	

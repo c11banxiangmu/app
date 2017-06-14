@@ -17,12 +17,19 @@ public class App_infoServiceImpl implements App_infoService {
 		this.app_infomapper = app_infomapper;
 	}
 
-	//查询app所有信息
+
+	@Override
+	public int getCountByConcent(String softwareName, int status, int flatformId) {
+		// TODO 自动生成的方法存根
+		return app_infomapper.getCountByConcent(softwareName, status, flatformId);
+	}
+
 	@Override
 	public List<app_info> getAllApp(String softwareName, int status,
-			int flatformId) {
-		
-		return app_infomapper.getAppInfo(softwareName, status, flatformId);
+			int flatformId, int categoryLevel1, int categoryLevel2,
+			int categoryLevel3, int curreIndex, int pageSize) {
+		// TODO 自动生成的方法存根
+		return app_infomapper.getAppInfo(softwareName, status, flatformId, categoryLevel1, categoryLevel2, categoryLevel3, (curreIndex-1)*pageSize, pageSize);
 	}
 	
 }
