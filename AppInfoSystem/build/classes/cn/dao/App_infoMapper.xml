@@ -35,7 +35,7 @@
 		</where>
 	</select>	
 	
-	<!-- tianjia -->
+	<!-- 添加 -->
 	<insert id="addAPP" parameterType="app_info">
 		INSERT INTO app_info (
 		softwareName,
@@ -47,7 +47,17 @@
 		flatformId,
 		categoryLevel1,
 		categoryLevel2,
-		categoryLevel3,)
-		VALUES(#{softwareName},#{APKName},#{supportROM},#{interfaceLanguage},#{softwareSize},#{downloads},#{flatformId},#{categoryLevel1},#{categoryLevel2},#{categoryLevel3})
+		categoryLevel3,
+		appInfo,
+		logoLocPath)
+		VALUES(#{softwareName},#{APKName},#{supportROM},#{interfaceLanguage},#{softwareSize},#{downloads},#{flatformId},#{categoryLevel1},#{categoryLevel2},#{categoryLevel3},#{appInfo},#{logoLocPath})
 	</insert>
+	<select id="getappByAPKname" resultType="app_info">
+	
+			SELECT softwareName,APKName,supportROM,interfaceLanguage,softwareSize,appInfo 
+			FROM app_info
+	
+			where APKName={APKName}
+	
+	</select>
 </mapper>

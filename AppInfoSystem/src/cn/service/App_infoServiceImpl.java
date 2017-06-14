@@ -24,7 +24,7 @@ public class App_infoServiceImpl implements App_infoService {
 		
 		return app_infomapper.getAppInfo(softwareName, status, flatformId);
 	}
-	//tianjia
+	//添加
 	@Override
 	public boolean addAPP(app_info appinfo) {
 		int row=app_infomapper.addAPP(appinfo);
@@ -32,6 +32,17 @@ public class App_infoServiceImpl implements App_infoService {
 			return true;
 		}else{
 			return false;
+		}
+		
+	}
+
+	@Override
+	public boolean getappByAPKname(String APKName) {
+		app_info appinfo=app_infomapper.getappByAPKname(APKName);
+		if(appinfo==null){
+			return false;
+		}else{
+			return true;
 		}
 		
 	}
