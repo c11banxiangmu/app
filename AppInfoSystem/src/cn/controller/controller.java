@@ -122,12 +122,6 @@ public class controller {
 		List<app_category>  cate  = cateGoryService.getCategory2(Integer.parseInt(pid));
 		return JSONArray.toJSONString(cate);
 	}
-	/*@ResponseBody
-	@RequestMapping(value="/categorylevellist",method=RequestMethod.GET,produces="application/json;charset=utf-8")
-	public Object categorylevellists(@RequestParam  String pid){
-		app_category cateapp = new app_category();
-		cateapp.setParentId(Integer.parseInt(pid));
-		List<app_category>  cates = cateGoryService.getCategory3(Integer.parseInt(pid));
-		return JSONArray.toJSONString(cates);
-	}*/
+
+	
 }
