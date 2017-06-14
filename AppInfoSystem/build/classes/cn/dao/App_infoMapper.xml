@@ -34,4 +34,20 @@
 			</if>
 		</where>
 	</select>	
+	
+	<!-- tianjia -->
+	<insert id="addAPP" parameterType="app_info">
+		INSERT INTO app_info (
+		softwareName,
+		APKName,
+		supportROM,
+		interfaceLanguage,
+		softwareSize,
+		downloads,
+		flatformId,
+		categoryLevel1,
+		categoryLevel2,
+		categoryLevel3,)
+		VALUES(#{softwareName},#{APKName},#{supportROM},#{interfaceLanguage},#{softwareSize},#{downloads},#{flatformId},#{categoryLevel1},#{categoryLevel2},#{categoryLevel3})
+	</insert>
 </mapper>

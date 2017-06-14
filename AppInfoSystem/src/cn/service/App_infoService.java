@@ -8,4 +8,7 @@ import cn.pojo.app_info;
 
 public interface App_infoService {
 	public List<app_info> getAllApp(String softwareName,int status,int flatformId);
+	
+	//tianjia
+	public boolean addAPP(app_info appinfo);
 }

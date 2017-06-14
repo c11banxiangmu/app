@@ -25,7 +25,7 @@ public class BackinfoController {
 			return "backendlogin";
 		}
 		//登陆
-		@RequestMapping(value="/dologin.html",method=RequestMethod.POST)
+		@RequestMapping(value="/backlogin.html",method=RequestMethod.POST)
 		public String login(@Param("userCode")String userCode, @Param("userPassword")String userPassword,HttpSession session){
 			
 

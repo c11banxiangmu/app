@@ -10,5 +10,7 @@ public interface App_infoMapper {
 	
 	//查询所有app信息
 	public List<app_info> getAppInfo(@Param("softwareName")String softwareName,@Param("status")int status,@Param("flatformId")int flatformId);
+	//tianjia
+	public int addAPP(app_info appinfo);
 	
 }

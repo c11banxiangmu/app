@@ -24,5 +24,16 @@ public class App_infoServiceImpl implements App_infoService {
 		
 		return app_infomapper.getAppInfo(softwareName, status, flatformId);
 	}
+	//tianjia
+	@Override
+	public boolean addAPP(app_info appinfo) {
+		int row=app_infomapper.addAPP(appinfo);
+		if(row==1){
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
 	
 }
