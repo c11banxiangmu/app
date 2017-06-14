@@ -31,5 +31,12 @@ public class App_infoServiceImpl implements App_infoService {
 		// TODO 自动生成的方法存根
 		return app_infomapper.getAppInfo(softwareName, status, flatformId, categoryLevel1, categoryLevel2, categoryLevel3, (curreIndex-1)*pageSize, pageSize);
 	}
+
+
+	@Override
+	public app_info getAppById(int id) {
+		
+		return app_infomapper.getAppById(id);
+	}
 	
 }

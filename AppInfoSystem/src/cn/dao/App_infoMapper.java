@@ -13,4 +13,5 @@ public interface App_infoMapper {
 			@Param("categoryLevel1")int categoryLevel1,@Param("categoryLevel2")int categoryLevel2,@Param("categoryLevel3")int categoryLevel3,
 			@Param("index")int index,@Param("pageSize")int pageSize);
 	public int getCountByConcent(@Param("softwareName")String softwareName,@Param("status")int status,@Param("flatformId")int flatformId);
+	public app_info getAppById(@Param("id")int id);
 }

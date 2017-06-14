@@ -17,6 +17,28 @@ public class app_version {
 	private Date modifyDate; 		//最新更新时间
 	private String apkLocPath;		//apk文件的服务器
 	private String apkFileName;		//上传的apk文件名称
+	private String appName;
+	private String publishStatusName;
+	private app_info softwareName;
+	
+	public String getPublishStatusName() {
+		return publishStatusName;
+	}
+	public void setPublishStatusName(String publishStatusName) {
+		this.publishStatusName = publishStatusName;
+	}
+	public String getAppName() {
+		return appName;
+	}
+	public void setAppName(String appName) {
+		this.appName = appName;
+	}
+	public app_info getSoftwareName() {
+		return softwareName;
+	}
+	public void setSoftwareName(app_info softwareName) {
+		this.softwareName = softwareName;
+	}
 	public int getId() {
 		return id;
 	}

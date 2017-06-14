@@ -58,5 +58,30 @@
 				and flatformId=#{flatformId}
 			</if>
 	</where>       
+	</select>
+	
+	<select id="getAppById" resultType="app_info">
+		SELECT appinfodb.app_info.id AS id,
+		softwareName,
+		APKName,
+		softwareSize,
+		supportROM,
+		interfaceLanguage,
+		appInfo,
+		logoPicPath,
+		d1.valueName AS flatformName,	
+		d2.valueName AS statusName,
+		downloads,
+	    a1.categoryName AS categoryLevel1Name,
+		a2.categoryName AS categoryLevel2Name,
+		a3.categoryName AS categoryLevel3Name,
+		versionId AS versionNo
+		FROM
+		appinfodb.app_info INNER JOIN appinfodb.data_dictionary AS d1 ON d1.valueId = flatformId AND d1.typeCode = 'APP_FLATFORM'
+		INNER JOIN appinfodb.data_dictionary AS d2 ON d2.valueId = STATUS AND d2.typeCode = 'APP_STATUS'
+		INNER JOIN appinfodb.app_category  AS a1 ON categoryLevel1 = a1.id  
+		INNER JOIN appinfodb.app_category  AS a2 ON categoryLevel2 = a2.id 
+		INNER JOIN appinfodb.app_category  AS a3 ON categoryLevel3 = a3.id  
+		where app_info.id=#{id}
 	</select>		
 </mapper>

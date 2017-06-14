@@ -136,7 +136,6 @@ public class controller {
 		return "developer/appinfolist";
 	}
 	
-	
 
 	@RequestMapping(value="/cateList",method=RequestMethod.GET,produces="application/json;charset=utf-8")
 	@ResponseBody
