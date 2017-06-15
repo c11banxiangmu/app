@@ -5,23 +5,14 @@
 <mapper namespace="cn.dao.App_infoMapper">
 <!-- 查询所有app信息 -->
 	<select id="getAppInfo" resultType="app_info">
-		SELECT appinfodb.app_info.id AS id,
-		softwareName,
-		APKName,
-		softwareSize,
-		d1.valueName AS flatformName,	
-		d2.valueName AS statusName,
-		downloads,
-	    a1.categoryName AS categoryLevel1Name,
-		a2.categoryName AS categoryLevel2Name,
-		a3.categoryName AS categoryLevel3Name,
-		versionId AS versionNo
-		FROM
-		appinfodb.app_info INNER JOIN appinfodb.data_dictionary AS d1 ON d1.valueId = flatformId AND d1.typeCode = 'APP_FLATFORM'
-		INNER JOIN appinfodb.data_dictionary AS d2 ON d2.valueId = STATUS AND d2.typeCode = 'APP_STATUS'
-		INNER JOIN appinfodb.app_category  AS a1 ON categoryLevel1 = a1.id  
-		INNER JOIN appinfodb.app_category  AS a2 ON categoryLevel2 = a2.id 
-		INNER JOIN appinfodb.app_category  AS a3 ON categoryLevel3 = a3.id 
+		SELECT app_info.id AS id,softwareName,APKName,softwareSize,dict1.valueName AS flatformName,app1.categoryName AS categoryLevel1Name,app2.categoryName AS categoryLevel2Name,app3.categoryName AS categoryLevel3Name,dict2.valueName AS statusName,downloads,versionNo
+		FROM app_info
+		INNER JOIN data_dictionary AS dict1  ON dict1.valueId = app_info.flatformId AND dict1.typeCode='APP_FLATFORM'
+		INNER JOIN data_dictionary AS dict2 ON 	dict2.valueId  = app_info.status AND dict2.typeCode='APP_STATUS'
+		INNER JOIN app_category AS app1 ON app_info.categoryLevel1 = app1.id
+		INNER JOIN app_category AS app2 ON app_info.categoryLevel2 = app2.id
+		INNER JOIN app_category AS app3 ON app_info.categoryLevel3 = app3.id
+		LEFT  JOIN app_version ON app_version.id = app_info.versionId
 		<where>
 			<if test="softwareName!=null and softwareName!=''">
 				and softwareName like concat('%',#{softwareName},'%')

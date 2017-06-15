@@ -27,7 +27,7 @@ public class app_info {
 	private int categoryLevel2;			//所属二级分类
 	private String logoPicPath;			//LOGO图片url路径
 	private String logoLocPath;			//LOGO图片的服务器存储路径
-	private String versionId;			//最新的版本ID
+	private int versionId;			//最新的版本ID
 	private String versionNo;
 	private String valueName;
 	private String flatformName;
@@ -223,10 +223,10 @@ public class app_info {
 	public void setLogoLocPath(String logoLocPath) {
 		this.logoLocPath = logoLocPath;
 	}
-	public String getVersionId() {
+	public int getVersionId() {
 		return versionId;
 	}
-	public void setVersionId(String versionId) {
+	public void setVersionId(int versionId) {
 		this.versionId = versionId;
 	}
 	
