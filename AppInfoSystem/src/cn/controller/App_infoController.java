@@ -90,8 +90,11 @@ public class App_infoController {
 	          }
 			}
 		//添加	
+<<<<<<< HEAD
 			appinfo.setStatus(1);
 			
+=======
+>>>>>>> 5ec4319b840af750eda42ee330f74cf2aa44af0a
 		if(app_infoService.addAPP(appinfo)){
 			return "redirect:/user/appinfolist.html";
 		}else{
@@ -117,26 +120,42 @@ public class App_infoController {
 				pid="0";
 			}
 		
+<<<<<<< HEAD
 		List<app_category>  cate  = cateGoryService.getCategory2(Integer.parseInt(pid));
+=======
+		List<app_category>  cate  = cateGoryService.getCategory(Integer.parseInt(pid));
+>>>>>>> 5ec4319b840af750eda42ee330f74cf2aa44af0a
 		return JSONArray.toJSONString(cate);
 	}
 	
 	@RequestMapping(value="/categoryLevel2",produces="application/json;charset=utf-8")
 	@ResponseBody
 	public Object categorylevellist2(String pid){		
+<<<<<<< HEAD
 		List<app_category>  cate  = cateGoryService.getCategory2(Integer.parseInt(pid));
+=======
+		List<app_category>  cate  = cateGoryService.getCategory(Integer.parseInt(pid));
+>>>>>>> 5ec4319b840af750eda42ee330f74cf2aa44af0a
 		return JSONArray.toJSONString(cate);
 	}
 	
 	@RequestMapping(value="/categoryLevel3",produces="application/json;charset=utf-8")
 	@ResponseBody
 	public Object categorylevellist1(String pid){
+<<<<<<< HEAD
 		List<app_category>  cate  = cateGoryService.getCategory2(Integer.parseInt(pid));
+=======
+		List<app_category>  cate  = cateGoryService.getCategory(Integer.parseInt(pid));
+>>>>>>> 5ec4319b840af750eda42ee330f74cf2aa44af0a
 		return JSONArray.toJSONString(cate);
 	}
 	
 	//验证
+<<<<<<< HEAD
 	@RequestMapping(value="/APKName")
+=======
+	@RequestMapping(value="APKName.html")
+>>>>>>> 5ec4319b840af750eda42ee330f74cf2aa44af0a
 	@ResponseBody
 	public Object userCodeExits(String APKName){
 		HashMap<String,String>result = new HashMap<String,String>();

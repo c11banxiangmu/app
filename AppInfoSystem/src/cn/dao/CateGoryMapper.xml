@@ -3,18 +3,23 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="cn.dao.CateGoryMapper">
+<<<<<<< HEAD
  <select id="getCategoryOne" resultType="app_category">
  	SELECT
 		id,categoryName,parentId FROM app_category
 		WHERE parentId=0
 	</select>
+=======
+ 
+>>>>>>> 5ec4319b840af750eda42ee330f74cf2aa44af0a
 	
-	<select id="getCategoryTow" resultType="app_category" parameterType="int">
+	<select id="getCategory" resultType="app_category" parameterType="int">
 		SELECT
 		id,categoryName,parentId FROM app_category
 		WHERE parentId=#{parentId}
 	</select>
 	
+<<<<<<< HEAD
 	<select id="getCategoryThree" resultType="app_category">
 		SELECT id,categoryName,parentId FROM app_category
 		WHERE parentId &gt;2
@@ -24,5 +29,13 @@
 		WHERE typeName='所属平台'
  	
  	</select>
+=======
+	
+
+ 	<select id="getpingtaiByName" resultType="data_dictionary">
+ 		SELECT valueName FROM data_dictionary 
+		WHERE typeName='所属平台'
+>>>>>>> 5ec4319b840af750eda42ee330f74cf2aa44af0a
  	
+ 	</select>
  </mapper>
