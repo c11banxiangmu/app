@@ -60,15 +60,5 @@ public class App_infoServiceImpl implements App_infoService {
 		
 	}
 
-	@Override
-	public boolean getappByAPKname(String APKName) {
-		app_info appinfo=app_infomapper.getappByAPKname(APKName);
-		if(appinfo==null){
-			return false;
-		}else{
-			return true;
-		}
-		
-	}
 	
 }

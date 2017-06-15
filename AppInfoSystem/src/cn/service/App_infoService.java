@@ -14,16 +14,11 @@ public interface App_infoService {
 	public app_info getAppById(int id);
 
 	
-<<<<<<< HEAD
+
 	
 	//添加
 	public boolean addAPP(app_info appinfo);
 	public boolean getappByAPKname(String APKName);
 
-=======
-	//添加
-	public boolean addAPP(app_info appinfo);
-	//根据名称查询APP信息
-	public boolean getappByAPKname(String APKName);
->>>>>>> 5ec4319b840af750eda42ee330f74cf2aa44af0a
+
 }

@@ -105,7 +105,7 @@ public class controller {
 		if(queryFlatformId==null || queryFlatformId.equals("")){
 			queryFlatformId="0";
 		}
-<<<<<<< HEAD
+
 		List<app_category> category1=cateGoryService.getCategory2(Integer.parseInt(queryCategoryLevel1));
 		request.setAttribute("categoryLevel1List", category1);
 		List<app_category> category2=cateGoryService.getCategory2(Integer.parseInt(queryCategoryLevel2));
@@ -116,15 +116,9 @@ public class controller {
 		List<app_info> applist =app_infoService.getAllApp(querySoftwareName,Integer.parseInt(queryStatus),Integer.parseInt(queryFlatformId),
 				Integer.parseInt(queryCategoryLevel1),Integer.parseInt(queryCategoryLevel2),Integer.parseInt(queryCategoryLevel3),
 				Integer.parseInt(pageIndex), Constants.PAGE_SIZE);
-=======
-		List<app_category> category1=cateGoryService.getCategory(Integer.parseInt(queryCategoryLevel1));
-		session.setAttribute("categoryLevel1List", category1);
-		List<app_category> category2=cateGoryService.getCategory(Integer.parseInt(queryCategoryLevel2));
-		session.setAttribute("categoryLevel2List", category2);
-		List<app_category> category3=cateGoryService.getCategory(Integer.parseInt(queryCategoryLevel3));
-		session.setAttribute("queryCategoryLevel3", category3);
-		List<app_info> applist =app_infoService.getAllApp(querySoftwareName,Integer.parseInt(queryStatus),Integer.parseInt(queryFlatformId));
->>>>>>> 5ec4319b840af750eda42ee330f74cf2aa44af0a
+
+		
+
 		request.setAttribute("appInfoList", applist);
 		
 		request.setAttribute("querySoftwareName", querySoftwareName);
@@ -153,7 +147,7 @@ public class controller {
 	public Object categorylevellist(@RequestParam  String pid){
 		app_category cateapp = new app_category();
 		cateapp.setParentId(Integer.parseInt(pid));	
-		List<app_category>  cate  = cateGoryService.getCategory(Integer.parseInt(pid));
+		List<app_category>  cate  = cateGoryService.getCategory2(Integer.parseInt(pid));
 		return JSONArray.toJSONString(cate);
 	}
 	
