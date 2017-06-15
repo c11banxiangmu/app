@@ -105,11 +105,11 @@ public class controller {
 		if(queryFlatformId==null || queryFlatformId.equals("")){
 			queryFlatformId="0";
 		}
-		List<app_category> category1=cateGoryService.getcategory1(Integer.parseInt(queryCategoryLevel1));
+		List<app_category> category1=cateGoryService.getCategory2(Integer.parseInt(queryCategoryLevel1));
 		request.setAttribute("categoryLevel1List", category1);
 		List<app_category> category2=cateGoryService.getCategory2(Integer.parseInt(queryCategoryLevel2));
 		request.setAttribute("categoryLevel2List", category2);
-		List<app_category> category3=cateGoryService.getCategory3(Integer.parseInt(queryCategoryLevel3));
+		List<app_category> category3=cateGoryService.getCategory2(Integer.parseInt(queryCategoryLevel3));
 		request.setAttribute("queryCategoryLevel3", category3);
 		
 		List<app_info> applist =app_infoService.getAllApp(querySoftwareName,Integer.parseInt(queryStatus),Integer.parseInt(queryFlatformId),
@@ -126,7 +126,8 @@ public class controller {
 		request.setAttribute("queryCategoryLevel3", queryCategoryLevel3);
 		
 		
-		int count=app_infoService.getCountByConcent(querySoftwareName,Integer.parseInt(queryStatus),Integer.parseInt(queryFlatformId));
+		int count=app_infoService.getCountByConcent(querySoftwareName,Integer.parseInt(queryStatus),Integer.parseInt(queryFlatformId),
+				Integer.parseInt(queryCategoryLevel1),Integer.parseInt(queryCategoryLevel2),Integer.parseInt(queryCategoryLevel3));
 		int pageCount=count%Constants.PAGE_SIZE==0?count/Constants.PAGE_SIZE:count/Constants.PAGE_SIZE +1;
 		Map<String,Object> map= new HashMap<String,Object>();
 		map.put("totalCount", count);
@@ -145,6 +146,15 @@ public class controller {
 		List<app_category>  cate  = cateGoryService.getCategory2(Integer.parseInt(pid));
 		return JSONArray.toJSONString(cate);
 	}
+	
+/*	@RequestMapping(value="/cateLists",method=RequestMethod.GET,produces="application/json;charset=utf-8")
+	@ResponseBody
+	public Object categorylevellists(@RequestParam  String pid){
+		app_category cateapp = new app_category();
+		cateapp.setParentId(Integer.parseInt(pid));	
+		List<app_category>  cates  = cateGoryService.getCategory3(Integer.parseInt(pid));
+		return JSONArray.toJSONString(cates);
+	}*/
 
 	
 }

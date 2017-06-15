@@ -6,7 +6,7 @@
  <select id="getCategoryOne" resultType="app_category">
  	SELECT
 		id,categoryName,parentId FROM app_category
-		WHERE parentId is null
+		WHERE parentId=0
 	</select>
 	
 	<select id="getCategoryTow" resultType="app_category" parameterType="int">
@@ -19,6 +19,10 @@
 		SELECT id,categoryName,parentId FROM app_category
 		WHERE parentId &gt;2
 	</select>
-
+	<select id="getpingtaiByName" resultType="data_dictionary">
+ 		SELECT valueName FROM data_dictionary 
+		WHERE typeName='所属平台'
+ 	
+ 	</select>
  	
  </mapper>

@@ -19,9 +19,9 @@ public class App_infoServiceImpl implements App_infoService {
 
 
 	@Override
-	public int getCountByConcent(String softwareName, int status, int flatformId) {
+	public int getCountByConcent(String softwareName, int status, int flatformId,int categoryLevel1,int categoryLevel2,int categoryLevel3) {
 		// TODO 自动生成的方法存根
-		return app_infomapper.getCountByConcent(softwareName, status, flatformId);
+		return app_infomapper.getCountByConcent(softwareName, status, flatformId, categoryLevel1, categoryLevel2, categoryLevel3);
 	}
 
 	@Override
@@ -37,6 +37,27 @@ public class App_infoServiceImpl implements App_infoService {
 	public app_info getAppById(int id) {
 		
 		return app_infomapper.getAppById(id);
+	}
+	//添加
+	@Override
+	public boolean addAPP(app_info appinfo) {
+		int row=app_infomapper.addAPP(appinfo);
+		if(row==1){
+			return true;
+		}else{
+			return false;
+		}	
+	}
+	
+	@Override
+	public boolean getappByAPKname(String APKName) {
+		app_info appinfo=app_infomapper.getappByAPKname(APKName);
+		if(appinfo==null){
+			return false;
+		}else{
+			return true;
+		}
+		
 	}
 	
 }

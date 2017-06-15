@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import cn.dao.CateGoryMapper;
 import cn.pojo.app_category;
+import cn.pojo.data_dictionary;
+
+
 @Service("cateGoryService")
 public class CateGoryServiceImpl implements CateGoryService{
 	@Autowired
@@ -33,5 +36,12 @@ public class CateGoryServiceImpl implements CateGoryService{
 		// TODO 自动生成的方法存根
 		return catecorymapper.getCategoryThree(parentId);
 	}
-
+	@Override
+	public List<data_dictionary> getpingtaiByName() {
+		
+		return catecorymapper.getpingtaiByName();
+	}
 }
+	
+
+
