@@ -90,21 +90,61 @@
 	
 	<!-- 添加 -->
 	<insert id="addAPP" parameterType="app_info">
-		INSERT INTO app_info (
-		softwareName,
-		APKName,
-		supportROM,
-		interfaceLanguage,
-		softwareSize,
-		downloads,
-		flatformId,
-		categoryLevel1,
-		categoryLevel2,
-		categoryLevel3,
-		appInfo,
-		logoLocPath)
-		VALUES(#{softwareName},#{APKName},#{supportROM},#{interfaceLanguage},#{softwareSize},#{downloads},#{flatformId},#{categoryLevel1},#{categoryLevel2},#{categoryLevel3},#{appInfo},#{logoLocPath})
+		
+	INSERT INTO appinfodb.app_info 
+	(softwareName, 
+	APKName, 
+	supportROM, 
+	interfaceLanguage, 
+	softwareSize, 
+	updateDate, 
+	devId, 
+	appInfo, 
+	STATUS, 
+	onSaleDate, 
+	offSaleDate, 
+	flatformId, 
+	categoryLevel3, 
+	downloads, 
+	createdBy, 
+	creationDate, 
+	modifyBy, 
+	modifyDate, 
+	categoryLevel1, 
+	categoryLevel2, 
+	logoPicPath, 
+	logoLocPath, 
+	versionId
+	)
+	VALUES
+	(#{softwareName}, 
+	#{APKName}, 
+	#{supportROM}, 
+	#{interfaceLanguage}, 
+	#{softwareSize}, 
+	#{updateDate}, 
+	#{devId}, 
+	#{appInfo}, 
+	#{status}, 
+	#{onSaleDate}, 
+	#{offSaleDate}, 
+	#{flatformId}, 
+	#{categoryLevel3}, 
+	#{downloads}, 
+	#{createdBy}, 
+	#{creationDate}, 
+	#{modifyBy}, 
+	#{modifyDate}, 
+	#{categoryLevel1}, 
+	#{categoryLevel2}, 
+	#{logoPicPath}, 
+	#{logoLocPath}, 
+	#{versionId}
+	);
 	</insert>
+		
+		
+	
 	<select id="getappByAPKname" resultType="app_info">
 	
 			SELECT softwareName,APKName,supportROM,interfaceLanguage,softwareSize,appInfo 

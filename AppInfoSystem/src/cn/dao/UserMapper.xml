@@ -14,7 +14,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			<if test="devCode != null and devCode !='' ">
  				and devCode = #{devCode}
  			</if>
- 			
  		</trim>
 	</select>
 </mapper>

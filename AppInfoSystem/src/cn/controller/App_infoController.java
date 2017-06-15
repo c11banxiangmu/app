@@ -91,7 +91,7 @@ public class App_infoController {
 			}
 		//添加	
 			appinfo.setStatus(1);
-			
+			appinfo.setVersionId(36);
 		if(app_infoService.addAPP(appinfo)){
 			return "redirect:/user/appinfolist.html";
 		}else{
