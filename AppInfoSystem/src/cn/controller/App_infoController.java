@@ -54,8 +54,7 @@ public class App_infoController {
 	@RequestMapping(value="/appinfoadd.html",method=RequestMethod.POST)
 	public String addAPP(app_info appinfo,HttpSession session,HttpServletRequest request,
 		@RequestParam(value ="a_logoPicPath", required = false) MultipartFile attach){
-		
-		
+		System.out.println(appinfo.getFlatformId());
 			String idPicPath = null;
 			//判断文件是否为空
 			if(!attach.isEmpty()){

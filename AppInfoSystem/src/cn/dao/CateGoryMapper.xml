@@ -24,7 +24,7 @@
 		WHERE parentId &gt;2
 	</select>
 	<select id="getpingtaiByName" resultType="data_dictionary">
- 		SELECT valueName FROM data_dictionary 
+ SELECT valueId,valueName FROM data_dictionary 
 		WHERE typeName='所属平台'
  	
  	</select>

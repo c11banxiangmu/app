@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.DelappMapper">
+<!-- 删除 -->
+	<delete id="delApp" parameterType="int">
+		DELETE FROM app_info WHERE id=#{id}
+	</delete>
+	<!-- 通过id查询app列表 -->
+	<select id="getAppById" resultType="app_info">
+	SELECT 	app_info.id,softwareName,APKName,supportROM,interfaceLanguage,softwareSize,downloads,categoryLevel1,categoryLevel2,categoryLevel3,flatformId,valueName AS statusName,appInfo,logoPicPath,logoLocPath FROM app_info
+		INNER JOIN data_dictionary ON data_dictionary.valueId=app_info.status
+		WHERE typeName='APP状态' AND app_info.id=#{id}
+	</select>
+	<!-- 修改app信息 -->
+	<update id="updateApp">
+		UPDATE app_info SET softwareName=#{softwareName},supportROM=#{supportROM},
+		interfaceLanguage=#{interfaceLanguage},softwareSize=#{softwareSize},
+		downloads=#{downloads},flatformId=#{flatformId},categoryLevel1=#{categoryLevel1},
+		categoryLevel2=#{categoryLevel2},categoryLevel3=#{categoryLevel3},appInfo=#{appInfo},
+		modifyBy=#{modifyBy},modifyDate=#{modifyDate},
+		logoPicPath=#{logoPicPath},logoLocPath=#{logoLocPath} where id = #{id}
+	</update>
+</mapper>

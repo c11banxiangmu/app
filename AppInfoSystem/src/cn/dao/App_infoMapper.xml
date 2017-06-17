@@ -5,7 +5,7 @@
 <mapper namespace="cn.dao.App_infoMapper">
 <!-- 查询所有app信息 -->
 	<select id="getAppInfo" resultType="app_info">
-		SELECT app_info.id AS id,softwareName,APKName,softwareSize,dict1.valueName AS flatformName,app1.categoryName AS categoryLevel1Name,app2.categoryName AS categoryLevel2Name,app3.categoryName AS categoryLevel3Name,dict2.valueName AS statusName,downloads,versionNo
+		SELECT app_info.id AS id,softwareName,APKName,softwareSize,status,dict1.valueName AS flatformName,app1.categoryName AS categoryLevel1Name,app2.categoryName AS categoryLevel2Name,app3.categoryName AS categoryLevel3Name,dict2.valueName AS statusName,downloads,versionNo
 		FROM app_info
 		INNER JOIN data_dictionary AS dict1  ON dict1.valueId = app_info.flatformId AND dict1.typeCode='APP_FLATFORM'
 		INNER JOIN data_dictionary AS dict2 ON 	dict2.valueId  = app_info.status AND dict2.typeCode='APP_STATUS'
